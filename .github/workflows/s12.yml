@@ -11,7 +11,7 @@ env:
 
 jobs:
   build-and-push:
-    runs-on: s13
+    runs-on: s12
 
     steps:
       - name: Checkout code
