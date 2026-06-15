@@ -17,10 +17,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4   # Update to @v5 if available, but FORCE_NODE24 works
 
-      # Grant access to Docker socket (for self-hosted runner)
-      - name: Allow Docker socket access
-        run: |
-          sudo chmod 666 /var/run/docker.sock
+      
+      
 
       # Install Docker if missing (self-hosted)
       - name: Install Docker (if needed)
@@ -31,6 +29,11 @@ jobs:
           else
             docker --version
           fi
+
+      # Grant access to Docker socket (for self-hosted runner)
+      - name: Allow Docker socket access
+        run: |
+          sudo chmod 666 /var/run/docker.sock
 
       - name: Build Docker image
         run: docker build -t s5carles/ci-cd:s12 .
