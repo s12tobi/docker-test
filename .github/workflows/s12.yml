@@ -43,7 +43,7 @@ jobs:
 
       - name: Run container with port mapping (host 8081 -> container 80)
         run: |
-          docker run -d -p 8080:80 --name s12-ci-cd s5carles/ci-cd:s15
+          docker run -d -p 8081:80 --name s12-ci-cd s5carles/ci-cd:s15
 
       - name: List running containers
         run: docker ps
