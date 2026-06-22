@@ -36,14 +36,14 @@ jobs:
           sudo chmod 666 /var/run/docker.sock
 
       - name: Build Docker image
-        run: docker build -t s5carles/ci-cd:s15 .
+        run: docker build -t s12tobi/ci-cd:s1 .
 
       - name: Verify built image
-        run: docker images | grep s5carles/ci-cd:s15
+        run: docker images | grep s12tobi/ci-cd:s1
 
       - name: Run container with port mapping (host 8081 -> container 80)
         run: |
-          docker run -d -p 8083:80 --name s15-ci-cd s5carles/ci-cd:s15
+          docker run -d -p 8080:80 --name s12-ci-cd s5carles/ci-cd:s15
 
       - name: List running containers
         run: docker ps
@@ -57,6 +57,6 @@ jobs:
 
       # Fixed push command - use correct image name (username already in tag)
       - name: Push image to Docker Hub
-        run: docker push s5carles/ci-cd:s15
+        run: docker push s12tobi/ci-cd:s1
 
       
